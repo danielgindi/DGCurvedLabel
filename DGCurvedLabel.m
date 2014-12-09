@@ -119,6 +119,8 @@ static void PrepareGlyphArcInfo(CGFloat radius, CTLineRef line, CFIndex glyphCou
     
     CGFloat radius = ABS(self.radius);
     
+    if (radius <= 0.f) return; // Or else, CTRunDraw will throw a SIGABRT
+    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     // Setup general affine transform

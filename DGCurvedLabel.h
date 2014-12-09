@@ -52,10 +52,11 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface DGCurvedLabel : UILabel
 
-@property (nonatomic, assign) CGFloat radius UI_APPEARANCE_SELECTOR;
-@property (nonatomic, assign) CGFloat rotation UI_APPEARANCE_SELECTOR;
-@property (nonatomic, assign) BOOL textInside UI_APPEARANCE_SELECTOR;
+@property (nonatomic, assign) IBInspectable CGFloat radius;
+@property (nonatomic, assign) IBInspectable CGFloat rotation;
+@property (nonatomic, assign) IBInspectable BOOL textInside;
 
 @end

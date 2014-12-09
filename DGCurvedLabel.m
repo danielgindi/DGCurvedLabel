@@ -81,8 +81,6 @@ static void PrepareGlyphArcInfo(CGFloat radius, CTLineRef line, CFIndex glyphCou
         glyphOffset += runGlyphCount;
     }
     
-    double lineLength = CTLineGetTypographicBounds(line, NULL, NULL, NULL);
-    
     CGFloat diameter = radius * 2.f * M_PI;
     CGFloat compensatingSpacingFactor = radius < 50.f ? 1.f + (1.f - radius / 50.f) / 2.f : 0.f;
     
@@ -176,8 +174,6 @@ static void PrepareGlyphArcInfo(CGFloat radius, CTLineRef line, CFIndex glyphCou
     {
         CTRunRef run = (CTRunRef)CFArrayGetValueAtIndex(runArray, runIndex);
         CFIndex runGlyphCount = CTRunGetGlyphCount(run);
-        BOOL drawSubstitutedGlyphsManually = NO;
-        CTFontRef runFont = CFDictionaryGetValue(CTRunGetAttributes(run), kCTFontAttributeName);
         
         CFIndex runGlyphIndex = 0;
         CGFloat glyphAngle;
